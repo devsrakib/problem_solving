@@ -1,11 +1,11 @@
-// function LogN(n) {
-//     while (n > 1) {
-//         n /= 2
-//         console.log(n);
-//     }
-//     console.log('Done');
+function LogN(n) {
+    while (n > 1) {
+        n /= 2
+        console.log(n);
+    }
+    console.log('Done');
 
-// }
+}
 
 
 function anotherLogN(n) {
