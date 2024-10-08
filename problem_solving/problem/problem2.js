@@ -5,12 +5,11 @@ function charCount(str) {
     // remove empty string or boolean value
     // iterate str
     for (let i = 0; i < str.length; i++) {
-        // convert lowercase
-        const char = str[i].toLowerCase()
-        // check 
-        // charObject[char] = (charObject[char] || 0) + 1
-
-        if (charObject[char]) {
+        // convert lowercase and ignore spaces
+        const char = str[i].toLowerCase().trim()
+        // check string using regular expression
+        if (/[a-z]/.test(charObject[char])) {
+            // increase value 
             charObject[char]++
         } else {
             charObject[char] = 1
@@ -21,11 +20,11 @@ function charCount(str) {
 }
 
 // call function with string
-const result = charCount('rakibul islam');
-const result2 = charCount('md nasmus sakib sumon')
-// log output
-console.log(result);
-console.log(result2);
+// const result = charCount('rakibul islam');
+// const result2 = charCount('md nasmus sakib sumon! 2')
+// // log output
+// console.log(result);
+// console.log(result2);
 
 
 
@@ -38,7 +37,7 @@ function charCount(str) {
     // Iterate over the string using 'for...of'
     for (const char of str.toLowerCase()) {
         // Ignore spaces or non-alphabetic characters
-        if (char.trim()) {
+        if (/[a-z]/.test(char.trim())) {
             // Use optional chaining to simplify counting logic
             charObject[char] = (charObject[char] ?? 0) + 1;
         }
@@ -47,3 +46,42 @@ function charCount(str) {
     // Return the character count object
     return charObject;
 }
+
+
+// const result = charCount('rakibul islam');
+// const result2 = charCount('md nasmus sakib sumon!!')
+// // log output
+// console.log(result);
+// console.log(result2);
+
+
+
+
+// check array
+function charCount(arr) {
+    // declare a empty object
+    let charObject = {}
+    // remove empty string or boolean value
+    // iterate str
+    for (let i = 0; i < arr.length; i++) {
+        // convert lowercase and ignore spaces
+        const char = arr[i].trim().toLowerCase()
+        // check string using regular expression
+        if (charObject[char]) {
+            // increase value 
+            charObject[char]++
+        } else {
+            charObject[char] = 1
+        }
+    }
+
+    // return object
+    return charObject;
+}
+
+// call function with string
+const result = charCount(['rakibul', 'islam', 'Rakibul ', 'islam', 'muntasir', 'muntasir']);
+// const result2 = charCount('md nasmus sakib sumon! 2')
+// log output
+console.log(result);
+// console.log(result2);
