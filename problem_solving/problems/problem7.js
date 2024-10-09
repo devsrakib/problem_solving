@@ -1,6 +1,6 @@
 // binary search
 
-function search(arr, val) {
+function search(arr, val) {//n
     if (arr.length === 0) return
     const sortedArr = arr.sort((a, b) => a - b)
 
@@ -9,6 +9,7 @@ function search(arr, val) {
 
     while (start <= end) {
         let middle = Math.round((start + end) / 2);
+
         if (arr[middle] === val) return middle
         if (val > arr[middle]) {
             start = middle + 1
@@ -17,9 +18,12 @@ function search(arr, val) {
         }
 
     }
+
     return 'result not found'
 }
 
-const result = search([9, 4, 8, 32, 84, 7, 3, 2, 8, 7, 6, 42, 38, 75], 9)
+// bigO(n)
+
+const result = search([9, 4, 8, 32, 84, 7, 3, 2, 8, 7, 6, 42, 38, 75], 400)
 console.log(result);
 
