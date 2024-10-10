@@ -1,12 +1,19 @@
-function twoSum(arr, target) {
-    for (let i = 0; i < arr.length; i++) {
-        for (let j = i + 1; j < arr.length; j++) {
-            if (arr[j] + arr[i] === target) {
-                return [i, j]
+// Input: nums = [2,7,11,15], target = 9
+// Output: [0,1]
+// Explanation: Because nums[0] + nums[1] == 9, we return [0, 1].
+
+const TowSum = (nums, target) => {
+    for (let i = 0; i < nums.length; i++) {
+        let remaining = target - nums[i];
+        for (let j = i + 1; j < nums.length; j++) {
+            if (remaining === nums[j]) {
+                return [i, j];
             }
         }
     }
-}
+    return false;
+};
 
-const result = twoSum([2, 3, 4], 6);
-console.log(result);
+// time complexity = O(n^2)
+// space complexity = O(1)
+console.log(TowSum([2, 7, 11, 15], 9));
